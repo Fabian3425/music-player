@@ -121,7 +121,17 @@ font-size: 1.2em
     background-color: #d0d8e6;
     display: inline-block;
     border-radius: 10px;
+    overflow: hidden;
 }
+.progress_area {
+    padding: 0 15px;
+}
+.timmer span{
+    font-weight: 400;
+    color:#fff
+}
+
+
 @media(max-width:667px){
   .wrap_content {
     width:100%;

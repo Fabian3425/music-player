@@ -8,6 +8,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@400;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style/style.css">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="icon" type="image/gif" href="imagenes/El-fin-de.jpg">
+
+
     <script src="https://kit.fontawesome.com/8a0c24b1b8.js" crossorigin="anonymous"></script>
     <title>Music Player</title>
 </head>
@@ -15,11 +19,11 @@
     
         <section class="content_music">
 
-            <div class="wrap_artist">
+            <div class="wrap_artist" id="app-music">
               
                 <div class="wrap_content">
                     <div class="img-artist_music">
-                        <img src="imagenes/the_weeknd.webp" alt="Artista">
+                        <img src="" alt="Artista">
                     </div>
                     <div class="wrap_content_player">
                             <div class="wrap_content_info">
@@ -54,19 +58,25 @@
                     
 
                 </div>
-                <div class="wrap_progress_bar">
-                    <div class="progress_bar">
-                         <div class="progress_bar-line"></div>
+
+                <div class="progress_area">
+                    <div class="progress_bar"></div>
+                    <div class="timmer">
+                        <span class="current">0:20</span>
+                        <span class="current">3:40</span>
                     </div>
-                    <p class="time_music">
-                        00:00
-                    </p>
                 </div>
+
+                <audio id="main-audio" src=""></audio>
+
+
+
             </div>
         </section>
 
-<img src="/imagenes/Captura de pantalla 2022-08-14 175205.png" alt="">
+<!-- <img src="/imagenes/Captura de pantalla 2022-08-14 175205.png" alt=""> -->
 
-
+<script src="js/music-list.js"></script>
+<script src="js/script.js"></script>
 </body>
 </html>
