@@ -2,19 +2,19 @@ let artistas = [
     {
         nombre: 'Blinding Lights', 
         artista: 'The Weeknd',
-        src: 'cancion-1.mp3',
+        src: 'the-weeknd-blinding-lights.mp3',
         img: 'the_weeknd.jpg'
     },
     {
-        nombre: 'Woodkid', 
+        nombre: 'The Golden Age', 
         artista: 'Woodkid',
-        src: 'cancion-1.mp3',
+        src: 'woodkid-the-golden-age.mp3',
         img: 'woodkid.jpg'
     },
     {
         nombre: 'often', 
         artista: 'The Weeknd',
-        src: 'cancion-1.mp3',
+        src: 'the-weeknd-often.mp3',
         img:'el-fin-de.jpg'
     }
 ];

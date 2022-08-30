@@ -5,10 +5,10 @@ musicArtista = app.querySelector('.name_artist'),
 mainAudio = app.querySelector('#main-audio');
 
 let playPaused = document.querySelector('.btn_play');
-let prev = document.querySelector('.btn_previous');
-let next = document.querySelector('.btn_next');
-
-
+let btnPrev = document.querySelector('#btn-prev');
+let btnNext = document.querySelector('#btn-next');
+let progressArea = document.querySelector('.progress_area');
+let progressBar = document.querySelector('#progressBar');
 
 
 
@@ -41,12 +41,26 @@ function pauseMusic(){
     mainAudio.pause();
 }
 
+//funccion de siguiente cancion
+function nextMusic(){
+    musicIndex++;
+    musicIndex > artistas.length ? musicIndex = 1 : musicIndex = musicIndex;
+    
+    loadMusic(musicIndex);
+    playMusic();
 
+};
+function prevMusic(){
+    musicIndex--;
+    musicIndex < 1 ? musicIndex = artistas.length : musicIndex = musicIndex;
+    loadMusic(musicIndex);
+    playMusic();
+
+};
 
 
 playPaused.addEventListener('click', ()=>{
     const isMusicPaused = app.classList.contains('paused');
-
     //Si isMusicPaused es true entonces llama a playMusic
    // isMusicPaused ?,  : 
     
@@ -57,7 +71,64 @@ playPaused.addEventListener('click', ()=>{
         playMusic();
         
     }
+});
 
+btnNext.addEventListener('click', ()=>{
+    nextMusic(); //Llamo a la siguiente cancion 
 
 });
+
+btnPrev.addEventListener('click', ()=>{
+    prevMusic(); //Llamo a la siguiente cancion 
+
+});
+
+
+
+
+mainAudio.addEventListener('timeupdate', (e)=>{
+    const currentTime = e.target.currentTime;
+    const duration = e.target.duration;
+    let progresssWidth  = (currentTime / duration) * 100;
+    progressBar.style.width = `${progresssWidth}%`;
+
+    let musicCurrentTime = app.querySelector('.current'),
+        musicDuration = app.querySelector('.duraccion');
+
+    mainAudio.addEventListener('loadeddata', ()=>{
+        
+
+
+        let audioDuration = mainAudio.duration;
+        let totalMin = Math.floor(audioDuration / 60);
+        let totalSec = Math.floor(audioDuration % 60);
+
+        if(totalSec < 10){
+            totalSec = `${totalSec}`
+        }
+        musicDuration.innerText = `${totalMin}:${totalSec}`;
+    });
+
+
+        //Actualizar tiempo Actual
+
+        let currentMin = Math.floor(currentTime / 60);
+        let currentSec = Math.floor(currentTime % 60);
+
+        if(currentSec < 10){
+            currentSec = `0${currentSec}`
+        }
+        musicCurrentTime.innerText = `${currentMin}:${currentSec}`;
+
+        progressArea.addEventListener('click', (e)=>{
+            let progresssWidthval = progressBar.clientWidth;
+            let clickedOffSetX = e.offsetX;
+            let songDuration = mainAudio.duration;
+
+            mainAudio.currentTime = (clickedOffSetX / progresssWidthval) * songDuration;
+            playMusic();
+        });
+});
+
+
 

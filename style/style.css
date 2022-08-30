@@ -31,13 +31,7 @@ align-items: center;
 height: 100vh;
 }
 
-.img-artist_music img{
-width: 200px;
-height: 200px;
-object-fit: cover;
-object-position: center;
-border-radius: 1.5em;
-}
+.img-artist_music img{width: 200px;height: 200px;object-fit: cover;object-position: center;border-radius: 1.5em;}
 
 .name_artist,
 .info_music,
@@ -57,24 +51,17 @@ font-weight: 200;
 .wrap_artist {
     max-width: 900px !important;
     width: 100%;
-background: var(--color-background);
+    background: var(--color-background);
 border-radius:1em;
-padding: 20px 0;
-box-shadow: 0.1rem 0.1rem 3rem #191b23, -0.1rem -0.1rem 2rem #292676;
+    padding: 20px;
+    box-shadow: 0.1rem 0.1rem 3rem #191b23, -0.1rem -0.1rem 2rem #292676;
 }
 
-.wrap_artist .wrap_content{
-display: flex;
-justify-content: space-around;
-align-items:center;
-flex-wrap: wrap;
+.wrap_artist .wrap_content{display: flex;
 
-}
+align-items:center;flex-wrap: wrap;}
 
-.img-artist_music{
-width: 30%;
-text-align: center;
-}
+.img-artist_music{width: 25%;display: block;}
 .wrap_content_player{
 width: 70%;
 line-height: 0em;
@@ -97,7 +84,7 @@ justify-content: space-between;
 .tools_music button{
 border:0;
 color:#fff;
-  background:transparent;
+    background:transparent;
 }
 .tools_music button i{
 font-size: 1.2em
@@ -110,21 +97,25 @@ font-size: 1.2em
     box-shadow: 0rem 0rem 0.3rem #a15cf2, 0rem 0rem 0.3rem #fff;
 }
 .wrap_progress_bar {
-  padding: 0 20px;
-  margin-top:30px
+    padding: 0 20px;
+    margin-top:30px
 }
 
 .progress_bar{
-    height: 6px;
-    width: 100%;
-    cursor: pointer;
-    background-color: #d0d8e6;
-    display: inline-block;
-    border-radius: 10px;
-    overflow: hidden;
+    width: 0%;
+    background: red;
+    height: inherit;
+    border-radius: 2em;
+    transition: .2s all ease;
 }
 .progress_area {
-    padding: 0 15px;
+    height: 6px;
+    cursor: pointer;
+    background-color: #c7cfde;
+    display: inline-block;
+    width: 100%;
+    border-radius: 2em;
+    cursor: pointer;
 }
 .timmer span{
     font-weight: 400;
@@ -133,7 +124,7 @@ font-size: 1.2em
 
 
 @media(max-width:667px){
-  .wrap_content {
+    .wrap_content {
     width:100%;
     flex-direction:column
 }
