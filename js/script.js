@@ -28,7 +28,6 @@ function loadMusic(indexNumb){
 }
 
 //Play Music Function
-
 function playMusic(){
     app.classList.add('paused');
     playPaused.querySelector('i').setAttribute("class", "fa-solid fa-pause");  
@@ -93,42 +92,59 @@ mainAudio.addEventListener('timeupdate', (e)=>{
     progressBar.style.width = `${progresssWidth}%`;
 
     let musicCurrentTime = app.querySelector('.current'),
-        musicDuration = app.querySelector('.duraccion');
+    musicDuration = app.querySelector('.duraccion');
 
+
+
+    //--------------------------------------
     mainAudio.addEventListener('loadeddata', ()=>{
-        
-
 
         let audioDuration = mainAudio.duration;
         let totalMin = Math.floor(audioDuration / 60);
         let totalSec = Math.floor(audioDuration % 60);
-
         if(totalSec < 10){
-            totalSec = `${totalSec}`
+            totalSec = `0${totalSec}`;
         }
         musicDuration.innerText = `${totalMin}:${totalSec}`;
     });
 
 
-        //Actualizar tiempo Actual
+    //Actualizar tiempo Actual
+    let currentMin = Math.floor(currentTime / 60);
+    let currentSec = Math.floor(currentTime % 60);
 
-        let currentMin = Math.floor(currentTime / 60);
-        let currentSec = Math.floor(currentTime % 60);
+    if(currentSec < 10){
+        currentSec = `0${currentSec}`
+    }
+    musicCurrentTime.innerText = `${currentMin}:${currentSec}`;
 
-        if(currentSec < 10){
-            currentSec = `0${currentSec}`
-        }
-        musicCurrentTime.innerText = `${currentMin}:${currentSec}`;
+    
+//---------------------------------
+    progressArea.addEventListener('click', (e)=>{
+        let progresssWidthval = progressArea.clientWidth;
+        let clickedOffSetX = e.offsetX;
+        let songDuration = mainAudio.duration;
 
-        progressArea.addEventListener('click', (e)=>{
-            let progresssWidthval = progressBar.clientWidth;
-            let clickedOffSetX = e.offsetX;
-            let songDuration = mainAudio.duration;
-
-            mainAudio.currentTime = (clickedOffSetX / progresssWidthval) * songDuration;
-            playMusic();
-        });
+        mainAudio.currentTime = (clickedOffSetX / progresssWidthval) * songDuration;
+        playMusic();
+    });
 });
 
 
+//Cancion aleatoria segun el icono
 
+const repeatBtn = app.querySelector('#btnRepeat');
+
+repeatBtn.addEventListener('click', ()=>{
+    
+    let getText = repeatBtn.querySelector('i').setAttribute("class", "fa-solid fa-repeat");
+
+    if(getText){
+        repeatBtn.querySelector('i').setAttribute("class", "fa-solid fa-rotate-right");
+    }else{
+        repeatBtn.querySelector('i').setAttribute("class", "fa-solid fa-repeat");
+    }
+       
+
+    
+});
