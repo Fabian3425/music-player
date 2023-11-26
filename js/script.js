@@ -131,20 +131,21 @@ mainAudio.addEventListener('timeupdate', (e)=>{
 });
 
 
-//Cancion aleatoria segun el icono
+//-------------------
 
-const repeatBtn = app.querySelector('#btnRepeat');
+const repeatBtn = app.querySelector('#btnrepeat');
+
 
 repeatBtn.addEventListener('click', ()=>{
-    
-    let getText = repeatBtn.querySelector('i').setAttribute("class", "fa-solid fa-repeat");
 
-    if(getText){
-        repeatBtn.querySelector('i').setAttribute("class", "fa-solid fa-rotate-right");
-    }else{
-        repeatBtn.querySelector('i').setAttribute("class", "fa-solid fa-repeat");
+    let updateIcon = repeatBtn.querySelector('i')
+
+    switch(updateIcon.getAttribute('class')){
+        case 'fa-repeat':
+           
+            alert('Funciona');
+
+            break;
     }
-       
 
-    
 });
